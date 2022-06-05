@@ -1,0 +1,44 @@
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #3f51b5;
+  color: #fff;
+  font-size: 1.2em;
+
+  nav {
+    width: 50%;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    list-style: none;
+    margin: 0;
+  }
+
+  li {
+    padding: 0.5em;
+    width: 20%;
+    text-align: center;
+    border-bottom: 0.2em solid transparent;
+    color: #cfd0d4;
+
+    &:hover {
+      color: #fff;
+      border-bottom: 0.2em solid #f50057;
+    }
+  }
+
+  .user-info {
+    width: 30%;
+    display: flex;
+    justify-content: space-evenly;
+
+    p {
+      align-self: center;
+      margin: 0;
+    }
+  }
+}

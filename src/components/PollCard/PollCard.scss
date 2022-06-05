@@ -1,0 +1,50 @@
+.poll {
+  display: flex;
+  margin: 1em 0;
+  .avatar {
+    padding-right: 1em;
+    border-right: 1px solid #9f9f9f;
+
+    img {
+      object-fit: cover;
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+    }
+  }
+
+  .question {
+    padding-left: 1em;
+    width: 100%;
+
+    .title {
+      font-weight: 500;
+    }
+
+    button {
+      width: 100%;
+
+      &.view-poll-btn {
+        background: transparent;
+        border-color: #3f51b5;
+        color: #3f51b5;
+
+        &:hover {
+          background: #3f51b5;
+          color: #fff;
+        }
+      }
+
+      &.submit-btn {
+        background: #3f51b5;
+        border-color: #3f51b5;
+        color: #fff;
+
+        &:hover {
+          color: #6071d3;
+          color: #9f9f9f;
+        }
+      }
+    }
+  }
+}
