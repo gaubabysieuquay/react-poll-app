@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import "./App.scss";
-import Tab from "./Tab/Tab";
-import Navbar from "./Navbar/Navbar";
-import PollCardOption from "./PollCard/PollCardOption";
+import React, { Component } from 'react';
+import './App.scss';
+import Tab from './Tab/Tab';
+import Navbar from './Navbar/Navbar';
+import PollCardOption from './PollCard/PollCardOption';
 
 export default class App extends Component {
   render() {

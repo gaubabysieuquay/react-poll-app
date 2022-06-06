@@ -1,14 +1,15 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+@import './variable';
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
@@ -23,12 +24,40 @@ code {
   margin: 1em 0;
 
   &-header {
-    background: #e5e5e8;
+    background: $default-background-color;
     padding: 0.4em 1em;
     font-weight: 500;
   }
 
   &-content {
     padding: 0.4em 1em;
+  }
+}
+
+button {
+  width: 100%;
+  height: 2em;
+  border-radius: 4px;
+
+  &.btn-outlined {
+    background: transparent;
+    border-color: $primary-main-color;
+    color: $primary-main-color;
+
+    &:hover {
+      background: $primary-main-color;
+      color: $contrast-text-color;
+    }
+  }
+
+  &.btn-contained {
+    background: $primary-main-color;
+    border-color: $primary-main-color;
+    color: $contrast-text-color;
+
+    &:hover {
+      color: $primary-light-color;
+      color: $disabled-text-color;
+    }
   }
 }

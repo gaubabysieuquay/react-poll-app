@@ -1,3 +1,5 @@
+@import '../../variable';
+
 ol {
   list-style: none;
   display: flex;
@@ -8,13 +10,13 @@ ol {
 
 li {
   padding: 0.5em 5em;
-  border-bottom: 0.1em solid #e5e5e8;
-  color: #3f51b5;
+  border-bottom: 0.1em solid $divider-color;
+  color: $primary-main-color;
   font-weight: 500;
 
   &:hover {
-    background: #3f51b5;
-    color: #fff;
+    background: $primary-main-color;
+    color: $contrast-text-color;
   }
 }
 

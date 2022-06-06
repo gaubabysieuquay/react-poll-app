@@ -1,9 +1,11 @@
+@import '../../variable';
+
 .poll {
   display: flex;
   margin: 1em 0;
   .avatar {
     padding-right: 1em;
-    border-right: 1px solid #9f9f9f;
+    border-right: 1px solid $divider-color;
 
     img {
       object-fit: cover;
@@ -16,33 +18,45 @@
   .question {
     padding-left: 1em;
     width: 100%;
+    min-width: 22em;
 
     .title {
       font-weight: 500;
     }
 
-    button {
-      width: 100%;
+    .form-radio {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin: 1em 0;
 
-      &.view-poll-btn {
-        background: transparent;
-        border-color: #3f51b5;
-        color: #3f51b5;
+      .form-radio-input {
+        height: 1.2rem;
+        width: 1.2rem;
+        margin-right: 0.5rem;
+
+        appearance: none;
+        -webkit-appearance: none;
+
+        border-radius: 50%;
+
+        // Dot color
+        background: $default-background-color;
+
+        // Border between dot and outer border
+        border: 3px solid $contrast-text-color;
+
+        // Outer border
+        box-shadow: 0 0 0 1px $divider-color;
 
         &:hover {
-          background: #3f51b5;
-          color: #fff;
+          box-shadow: 0 0 0 1px $secondary-main-color;
         }
-      }
 
-      &.submit-btn {
-        background: #3f51b5;
-        border-color: #3f51b5;
-        color: #fff;
-
-        &:hover {
-          color: #6071d3;
-          color: #9f9f9f;
+        &:checked {
+          box-shadow: 0 0 0 1px $secondary-main-color;
+          background-color: $secondary-main-color;
+          border-width: 0.2rem;
         }
       }
     }

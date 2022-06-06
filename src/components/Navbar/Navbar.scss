@@ -1,9 +1,11 @@
+@import '../../variable';
+
 .navbar {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background: #3f51b5;
-  color: #fff;
+  background: $primary-main-color;
+  color: $contrast-text-color;
   font-size: 1.2em;
 
   nav {
@@ -23,11 +25,11 @@
     width: 20%;
     text-align: center;
     border-bottom: 0.2em solid transparent;
-    color: #cfd0d4;
+    color: $disabled-text-color;
 
     &:hover {
-      color: #fff;
-      border-bottom: 0.2em solid #f50057;
+      color: $contrast-text-color;
+      border-bottom: 0.2em solid $secondary-main-color;
     }
   }
 

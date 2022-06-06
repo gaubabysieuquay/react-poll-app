@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import "./PollCard.scss";
+import React, { Component } from 'react';
+import './PollCard.scss';
 
 export default class PollCard extends Component {
   render() {
@@ -18,7 +18,7 @@ export default class PollCard extends Component {
               <div className="question">
                 <p className="title">Would you rather</p>
                 <p>Question here ?</p>
-                <button className="view-poll-btn">View Poll</button>
+                <button className="btn-outlined">View Poll</button>
               </div>
             </div>
           </div>
@@ -36,7 +36,7 @@ export default class PollCard extends Component {
               <div className="question">
                 <p className="title">Would you rather</p>
                 <p>Question here ?</p>
-                <button>View Poll</button>
+                <button className="btn-outlined">View Poll</button>
               </div>
             </div>
           </div>

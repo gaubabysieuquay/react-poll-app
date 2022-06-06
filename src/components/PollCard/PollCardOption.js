@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import "./PollCard.scss";
+import React, { Component } from 'react';
+import './PollCard.scss';
 
 export default class PollCardOption extends Component {
   render() {
@@ -16,13 +16,29 @@ export default class PollCardOption extends Component {
             </div>
             <div className="question">
               <p className="title">Would you rather</p>
-              <label>
-                <input type="radio" value="option1" name="option1" /> Option 1
-              </label>
-              <label>
-                <input type="radio" value="option2" name="option2" /> Option 2
-              </label>
-              <button className="submit-btn">Submit</button>
+              <form>
+                <div className="form-radio">
+                  <input
+                    type="radio"
+                    value="option1"
+                    name="option1"
+                    id="option1"
+                    className="form-radio-input"
+                  />
+                  <label htmlFor="option1">Option 1</label>
+                </div>
+                <div className="form-radio">
+                  <input
+                    type="radio"
+                    value="option2"
+                    name="option2"
+                    id="option2"
+                    className="form-radio-input"
+                  />
+                  <label htmlFor="option2">Option 2</label>
+                </div>
+                <button className="btn-contained">Submit</button>
+              </form>
             </div>
           </div>
         </div>
