@@ -24,7 +24,7 @@ export default class PollCardDetail extends Component {
                   <ProgressBar progress="50" height={30} />
                   <small>1 out of 2 votes</small>
                 </div>
-                <div class="voted-icon">
+                <div class="voted-tag">
                   <AiFillLike />
                 </div>
               </div>
