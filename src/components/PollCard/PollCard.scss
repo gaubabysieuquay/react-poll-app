@@ -4,6 +4,8 @@
   display: flex;
   margin: 1em 0;
   .avatar {
+    display: flex;
+    align-items: center;
     padding-right: 1em;
     border-right: 1px solid $divider-color;
 
@@ -61,4 +63,12 @@
       }
     }
   }
+}
+
+.voted-icon {
+  position: absolute;
+  top: -20px;
+  right: -12px;
+  font-size: 33px;
+  color: $secondary-main-color;
 }

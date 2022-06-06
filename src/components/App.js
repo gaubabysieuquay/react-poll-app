@@ -3,6 +3,7 @@ import './App.scss';
 import Tab from './Tab/Tab';
 import Navbar from './Navbar/Navbar';
 import PollCardOption from './PollCard/PollCardOption';
+import PollCardDetail from './PollCard/PollCardDetail';
 
 export default class App extends Component {
   render() {
@@ -14,7 +15,8 @@ export default class App extends Component {
         </div>
         <div className="container">
           {/* <Tab /> */}
-          <PollCardOption />
+          {/* <PollCardOption /> */}
+          <PollCardDetail />
         </div>
       </div>
     );

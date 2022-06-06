@@ -1,0 +1,24 @@
+@import '../../variable';
+
+.progress {
+  width: 100%;
+  background-color: #b6bce2;
+  border-radius: 0.7em;
+  margin: 1em 0;
+
+  &-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    border-radius: 0.7em;
+    text-align: right;
+    background-color: $primary-main-color;
+  }
+
+  &-percent {
+    padding: 10px;
+    color: $contrast-text-color;
+    font-weight: 900;
+  }
+}

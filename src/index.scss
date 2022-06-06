@@ -32,6 +32,28 @@ code {
   &-content {
     padding: 0.4em 1em;
   }
+
+  &.highlight {
+    position: relative;
+    box-shadow: none;
+    background: $primary-highlight-color;
+    border: 0.1em solid $primary-main-color;
+
+    p {
+      color: $primary-main-color;
+      font-weight: 500;
+    }
+  }
+
+  &.disabled {
+    box-shadow: none;
+    background: $default-background-color;
+    border: 0.1em solid $divider-color;
+
+    p {
+      font-weight: 500;
+    }
+  }
 }
 
 button {
