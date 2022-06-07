@@ -1,10 +1,16 @@
-@import '../../variable';
+@import "../../variable";
 
 .leaderboard {
   display: flex;
   justify-content: center;
   flex-direction: column;
   padding: 1em 3em;
+
+  .trophy {
+    display: inline-block;
+    margin: 0.4em 0 0 0.2em;
+    color: yellow;
+  }
 
   .card {
     background: linear-gradient(

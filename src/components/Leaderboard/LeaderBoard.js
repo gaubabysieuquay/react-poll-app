@@ -1,11 +1,15 @@
-import React, { Component } from 'react';
-import './LeaderBoard.scss';
+import React, { Component } from "react";
+import { IoMdTrophy } from "react-icons/io";
+import "./LeaderBoard.scss";
 
 export default class LeaderBoard extends Component {
   render() {
     return (
       <div className="leaderboard">
         <div className="card">
+          <div className="trophy">
+            <IoMdTrophy />
+          </div>
           <div className="card-content">
             <div className="poll">
               <div className="avatar">

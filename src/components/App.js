@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
-import './App.scss';
-import Tab from './Tab/Tab';
-import Navbar from './Navbar/Navbar';
-import PollCardOption from './PollCard/PollCardOption';
-import PollCardDetail from './PollCard/PollCardDetail';
-import CreatePoll from './CreatePoll/CreatePoll';
-import LeaderBoard from './Leaderboard/LeaderBoard';
+import React, { Component } from "react";
+import "./App.scss";
+import Tab from "./Tab/Tab";
+import Navbar from "./Navbar/Navbar";
+import PollCardOption from "./PollCard/PollCardOption";
+import PollCardDetail from "./PollCard/PollCardDetail";
+import CreatePoll from "./CreatePoll/CreatePoll";
+import LeaderBoard from "./Leaderboard/LeaderBoard";
+import Login from "./Authentication/Login";
 
 export default class App extends Component {
   render() {
@@ -20,7 +21,8 @@ export default class App extends Component {
           {/* <PollCardOption /> */}
           {/* <PollCardDetail /> */}
           {/* <CreatePoll /> */}
-          <LeaderBoard />
+          {/* <LeaderBoard /> */}
+          <Login />
         </div>
       </div>
     );
