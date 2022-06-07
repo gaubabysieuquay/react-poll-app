@@ -1,0 +1,53 @@
+@import '../../variable';
+
+.leaderboard {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1em 3em;
+
+  .card {
+    background: linear-gradient(
+          to top left,
+          #0000 50%,
+          $secondary-main-color 50.1%
+        )
+        top left/50px 50px no-repeat,
+      $paper-background-color;
+  }
+
+  .answered-created-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .divider {
+    color: $divider-color;
+  }
+
+  .score-container {
+    margin-left: 2em;
+    padding-left: 1em;
+    border-left: 0.1em solid $divider-color;
+
+    .score {
+      border: 0.1em solid $secondary-main-color;
+
+      .score-header {
+        background: $primary-main-color;
+        color: $contrast-text-color;
+        border-bottom: 0.1em solid $secondary-main-color;
+      }
+
+      .score-text {
+        text-align: center;
+        font-weight: 500;
+        color: $contrast-text-color;
+        background: $secondary-main-color;
+        border: 0.1em solid $secondary-main-color;
+        border-radius: 50%;
+        padding: 1em;
+      }
+    }
+  }
+}

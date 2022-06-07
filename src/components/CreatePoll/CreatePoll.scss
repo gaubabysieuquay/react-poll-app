@@ -1,0 +1,17 @@
+@import '../../variable';
+
+.create-poll-form-header {
+  background: #fff;
+  font-size: 44px;
+}
+
+.create-poll-form-content {
+  .submit-btn {
+    margin: 1em 0;
+  }
+
+  .title {
+    font-weight: 500;
+    color: $divider-color;
+  }
+}

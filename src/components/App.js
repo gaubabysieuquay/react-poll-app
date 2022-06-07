@@ -4,6 +4,8 @@ import Tab from './Tab/Tab';
 import Navbar from './Navbar/Navbar';
 import PollCardOption from './PollCard/PollCardOption';
 import PollCardDetail from './PollCard/PollCardDetail';
+import CreatePoll from './CreatePoll/CreatePoll';
+import LeaderBoard from './Leaderboard/LeaderBoard';
 
 export default class App extends Component {
   render() {
@@ -16,7 +18,9 @@ export default class App extends Component {
         <div className="container">
           {/* <Tab /> */}
           {/* <PollCardOption /> */}
-          <PollCardDetail />
+          {/* <PollCardDetail /> */}
+          {/* <CreatePoll /> */}
+          <LeaderBoard />
         </div>
       </div>
     );

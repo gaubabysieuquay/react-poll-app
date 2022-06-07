@@ -16,8 +16,8 @@ export default class PollCardOption extends Component {
             </div>
             <div className="question">
               <p className="title">Would you rather</p>
-              <form>
-                <div className="form-radio">
+              <form className="form-control">
+                <div className="form-control-input radio">
                   <input
                     type="radio"
                     value="option1"
@@ -27,7 +27,7 @@ export default class PollCardOption extends Component {
                   />
                   <label htmlFor="option1">Option 1</label>
                 </div>
-                <div className="form-radio">
+                <div className="form-control-input radio">
                   <input
                     type="radio"
                     value="option2"

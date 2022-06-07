@@ -7,7 +7,7 @@
     display: flex;
     align-items: center;
     padding-right: 1em;
-    border-right: 1px solid $divider-color;
+    border-right: 0.1em solid $divider-color;
 
     img {
       object-fit: cover;
@@ -20,47 +20,10 @@
   .question {
     padding-left: 1em;
     width: 100%;
-    min-width: 22em;
+    min-width: 16em;
 
     .title {
       font-weight: 500;
-    }
-
-    .form-radio {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      margin: 1em 0;
-
-      .form-radio-input {
-        height: 1.2rem;
-        width: 1.2rem;
-        margin-right: 0.5rem;
-
-        appearance: none;
-        -webkit-appearance: none;
-
-        border-radius: 50%;
-
-        // Dot color
-        background: $default-background-color;
-
-        // Border between dot and outer border
-        border: 3px solid $contrast-text-color;
-
-        // Outer border
-        box-shadow: 0 0 0 1px $divider-color;
-
-        &:hover {
-          box-shadow: 0 0 0 1px $secondary-main-color;
-        }
-
-        &:checked {
-          box-shadow: 0 0 0 1px $secondary-main-color;
-          background-color: $secondary-main-color;
-          border-width: 0.2rem;
-        }
-      }
     }
   }
 }
