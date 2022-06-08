@@ -1,6 +1,6 @@
-import React from "react";
-import { MdLogout } from "react-icons/md";
-import "./Navbar.scss";
+import React from 'react';
+import { MdLogout } from 'react-icons/md';
+import './Navbar.scss';
 
 const Navbar = () => {
   return (
@@ -12,8 +12,15 @@ const Navbar = () => {
           <li>LEADERBOARD</li>
         </ul>
       </nav>
-      <div className="user-info">
-        <p>Hello, user</p>
+      <div className="user-section">
+        <div className="user-info">
+          <p>Hello, user</p>
+          <img
+            src="https://demoda.vn/wp-content/uploads/2022/01/avatar-doremon.jpg"
+            alt=""
+            className="user-avatar"
+          />
+        </div>
         <MdLogout />
       </div>
     </div>

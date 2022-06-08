@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import "./Authentication.scss";
+import React, { Component } from 'react';
+import './Authentication.scss';
 
 export default class Login extends Component {
   render() {
@@ -9,22 +9,11 @@ export default class Login extends Component {
         <div className="card-content">
           <form className="form-control">
             <div className="form-control-input text">
-              <label htmlFor="option1">Username</label>
-              <input
-                type="text"
-                name="option1"
-                id="option1"
-                className="form-input-text"
-              />
-            </div>
-            <div className="form-control-input text">
-              <label htmlFor="option1">Password</label>
-              <input
-                type="text"
-                name="option2"
-                id="option2"
-                className="form-input-text"
-              />
+              <label htmlFor="username">Username</label>
+              <select name="username" id="username" className="form-input-text">
+                <option value="user1">User1</option>
+                <option value="user2">User2</option>
+              </select>
             </div>
             <button type="submit" className="btn-contained submit-btn">
               Login

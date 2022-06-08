@@ -33,14 +33,25 @@
     }
   }
 
-  .user-info {
+  .user-section {
     width: 30%;
     display: flex;
     justify-content: space-evenly;
 
-    p {
-      align-self: center;
-      margin: 0;
+    .user-info {
+      width: 30%;
+      display: flex;
+      justify-content: space-between;
+
+      .user-avatar {
+        width: 20%;
+        border-radius: 50%;
+      }
+
+      p {
+        align-self: center;
+        margin: 0;
+      }
     }
   }
 }

@@ -147,6 +147,10 @@ button {
         outline: $primary-main-color auto 1px;
       }
     }
+
+    select {
+      width: 100% !important;
+    }
   }
 }
 
