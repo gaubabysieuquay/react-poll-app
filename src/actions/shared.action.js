@@ -1,9 +1,9 @@
-import { getInitialData } from '../utils/api';
-import { setAuthUser } from './authedUser.action';
-import { receiveQuestions } from './questions.action';
-import { receiveUsers } from './users.action';
+import { getInitialData } from "../utils/api";
+import { setAuthUser } from "./authUser.action";
+import { receiveQuestions } from "./questions.action";
+import { receiveUsers } from "./users.action";
 
-const AUTH_ID = 'tylermcginnis';
+const AUTH_ID = "tylermcginnis";
 
 export const handleInitialData = () => {
   return (dispatch) => {

@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import PollCard from "../PollCard/PollCard";
 import "./Tab.scss";
 
-export default class Tab extends Component {
+class Tab extends Component {
   state = {
     activeTab: [],
   };
@@ -17,9 +18,21 @@ export default class Tab extends Component {
           </ol>
         </div>
         <div className="tab-content">
-          <PollCard />
+          {this.props.questionIds.map((id) => (
+            <PollCard key={id} id={id} />
+          ))}
         </div>
       </div>
     );
   }
 }
+
+const mapStateToProps = ({ questions }) => {
+  return {
+    questionIds: Object.keys(questions).sort(
+      (a, b) => questions[b].timestamp - questions[a].timestamp
+    ),
+  };
+};
+
+export default connect(mapStateToProps)(Tab);

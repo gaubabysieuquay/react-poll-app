@@ -1,14 +1,9 @@
-import React, { Component } from 'react';
-import './App.scss';
-import Tab from './Tab/Tab';
-import Navbar from './Navbar/Navbar';
-import PollCardOption from './PollCard/PollCardOption';
-import PollCardDetail from './PollCard/PollCardDetail';
-import CreatePoll from './CreatePoll/CreatePoll';
-import LeaderBoard from './Leaderboard/LeaderBoard';
-import Login from './Authentication/Login';
-import { handleInitialData } from '../actions/shared.action';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { handleInitialData } from "../actions/shared.action";
+import "./App.scss";
+import Navbar from "./Navbar/Navbar";
+import Tab from "./Tab/Tab";
 
 class App extends Component {
   componentDidMount() {
@@ -21,17 +16,16 @@ class App extends Component {
           <p className="title">REACT POLL APP</p>
           <Navbar />
         </div>
-        <div className="container">
-          {/* <Tab /> */}
-          {/* <PollCardOption /> */}
-          {/* <PollCardDetail /> */}
-          {/* <CreatePoll /> */}
-          {/* <LeaderBoard /> */}
-          <Login />
-        </div>
+        <div className="container">{this.props.loading ? null : <Tab />}</div>
       </div>
     );
   }
 }
 
-export default connect()(App);
+const mapStateToProps = ({ authUser }) => {
+  return {
+    loading: authUser === null,
+  };
+};
+
+export default connect(mapStateToProps)(App);
