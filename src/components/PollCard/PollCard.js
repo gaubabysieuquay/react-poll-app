@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import './PollCard.scss';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import "./PollCard.scss";
 
 class PollCard extends Component {
   // isAnswered = () => {
@@ -48,21 +48,6 @@ class PollCard extends Component {
 const mapStateToProps = ({ authUser, users, questions }, { id }) => {
   const question = questions[id];
   const author = question ? users[question.author] : null;
-  // const tab = 'Unanswered';
-  // const isAnswered =
-  //   question.optionOne.votes.includes(authUser) ||
-  //   question.optionTwo.votes.includes(authUser);
-
-  // let answeredPoll = {};
-  // let unansweredPoll = {};
-
-  // if (!isAnswered) {
-  //   answeredPoll = question;
-  // } else {
-  //   unansweredPoll = question;
-  // }
-
-  // const poll = tab === 'Unanswered' ? answeredPoll : unansweredPoll;
 
   return {
     authUser,
