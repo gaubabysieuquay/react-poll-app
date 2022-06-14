@@ -1,27 +1,11 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import "./PollCard.scss";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import './PollCard.scss';
 
 class PollCard extends Component {
-  // isAnswered = () => {
-  //   const { question } = this.props;
-  //   const { author, id, optionOne, optionTwo } = question;
-  //   const tab = 'Unanswered';
-  //   const isAnswered =
-  //     optionOne.votes.includes(author) || optionTwo.votes.includes(author);
-  //   let poll = {};
-  //   if (tab === 'Unanswered' && !isAnswered) {
-  //     return (poll = question);
-  //   } else {
-  //     console.log('Answered');
-  //   }
-  // };
-
   render() {
-    console.log(this.props);
-
     const { question } = this.props;
-    const { authorAvatarUrl, authorName, id, optionOne, optionTwo } = question;
+    const { authorAvatarUrl, authorName, optionOne, optionTwo } = question;
 
     return (
       <div className="card">

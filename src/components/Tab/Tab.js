@@ -1,42 +1,57 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import PollCard from "../PollCard/PollCard";
-import "./Tab.scss";
-import TabItem from "./TabItem";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PollCard from '../PollCard/PollCard';
+import './Tab.scss';
+import TabItem from './TabItem';
 
 class Tab extends Component {
-  tabItemLabel = ["Unanswered Questions", "Answered Questions"];
+  tabItemLabel = ['Unanswered Questions', 'Answered Questions'];
 
   state = {
-    activeTab: "",
+    activeTab: this.tabItemLabel[0],
   };
 
-  handleTab = () => {};
+  handleTab = (tab) => {
+    this.setState({ activeTab: tab });
+  };
 
   render() {
-    const { questionIds } = this.props;
-    const filterByTab = (tab) => {};
+    const { activeTab } = this.state;
+    const { answeredIds, unansweredIds } = this.props;
+
     return (
       <div className="card">
         <div className="tab-list">
           <ol>
             {this.tabItemLabel.map((label) => (
-              <TabItem label={label} />
+              <TabItem
+                activeTab={activeTab}
+                label={label}
+                key={label}
+                onClickHandle={this.handleTab}
+              />
             ))}
           </ol>
         </div>
         <div className="tab-content">
-          {this.props.questionIds.map((id) => (
-            <PollCard key={id} id={id} />
-          ))}
+          {activeTab === 'Answered Questions'
+            ? answeredIds.map((id) => <PollCard key={id} id={id} />)
+            : unansweredIds.map((id) => <PollCard key={id} id={id} />)}
         </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = ({ questions }) => {
+const mapStateToProps = ({ authUser, users, questions }) => {
+  const answeredIds = Object.keys(users[authUser].answers);
+  const unansweredIds = Object.keys(questions).filter(
+    (item) => !answeredIds.includes(item)
+  );
+
   return {
+    answeredIds,
+    unansweredIds,
     questionIds: Object.keys(questions).sort(
       (a, b) => questions[b].timestamp - questions[a].timestamp
     ),

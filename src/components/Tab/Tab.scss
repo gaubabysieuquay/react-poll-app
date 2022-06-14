@@ -1,4 +1,4 @@
-@import "../../variable";
+@import '../../variable';
 
 ol {
   list-style: none;
@@ -14,7 +14,8 @@ li {
   color: $primary-main-color;
   font-weight: 500;
 
-  &.tab-active:hover {
+  &.tab-active,
+  &:hover {
     background: $primary-main-color;
     color: $contrast-text-color;
   }

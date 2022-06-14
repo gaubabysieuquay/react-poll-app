@@ -1,24 +1,19 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 export default class TabItem extends Component {
-  onClick = () => {
-    const { label, onClick } = this.props;
-    onClick(label);
+  handleOnClick = () => {
+    const { label, onClickHandle } = this.props;
+    onClickHandle(label);
   };
 
   render() {
-    const {
-      onClick,
-      props: { activeTab, label },
-    } = this;
-
-    let className = "";
-    if (activeTab === label) {
-      className += "tab-active";
-    }
+    const { activeTab, label } = this.props;
 
     return (
-      <li className={className} onClick={onClick}>
+      <li
+        className={activeTab === label ? 'tab-active' : null}
+        onClick={this.handleOnClick}
+      >
         {label}
       </li>
     );
