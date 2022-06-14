@@ -46,7 +46,7 @@ export default class LeaderBoard extends Component {
             </div>
           </div>
         </div>
-        <div className={`card ${leaderBoardStyle["card"]}`}>
+        <div className="card">
           <div className="card-content">
             <div className={pollCardStyle["poll"]}>
               <div className={pollCardStyle["avatar"]}>

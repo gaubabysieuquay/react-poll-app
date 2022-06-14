@@ -1,6 +1,6 @@
 import React from "react";
 import { MdLogout } from "react-icons/md";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import navStyle from "./Navbar.module.scss";
 
 const Navbar = () => {
@@ -15,13 +15,13 @@ const Navbar = () => {
         <ul>
           {menuItems.map((item) => (
             <li key={item.label}>
-              <NavLink
+              <Link
                 to={item.url}
                 exact={item.url === "/"}
                 activeClassName={navStyle["active"]}
               >
                 {item.label}
-              </NavLink>
+              </Link>
             </li>
           ))}
         </ul>
