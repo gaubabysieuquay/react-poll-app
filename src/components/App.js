@@ -1,9 +1,14 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { handleInitialData } from "../actions/shared.action";
-import "./App.scss";
-import Navbar from "./Navbar/Navbar";
-import Tab from "./Tab/Tab";
+import { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
+import LoadingBar from 'react-redux-loading';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { handleInitialData } from '../actions/shared.action';
+import './App.scss';
+import CreatePoll from './CreatePoll/CreatePoll';
+import Navbar from './Navbar/Navbar';
+import PollCardOption from './PollCard/PollCardOption';
+import Tab from './Tab/Tab';
+import LeaderBoard from './LeaderBoard/LeaderBoard';
 
 class App extends Component {
   componentDidMount() {
@@ -11,13 +16,25 @@ class App extends Component {
   }
   render() {
     return (
-      <div>
-        <div className="header">
-          <p className="title">REACT POLL APP</p>
-          <Navbar />
-        </div>
-        <div className="container">{this.props.loading ? null : <Tab />}</div>
-      </div>
+      <Router>
+        <Fragment>
+          <LoadingBar />
+          <div className="header">
+            <p className="title">REACT POLL APP</p>
+            <Navbar />
+          </div>
+          <div className="container">
+            {this.props.loading === true ? null : (
+              <Switch>
+                <Route path="/question/:id" component={PollCardOption} />
+                <Route path="/leaderboard" exact component={LeaderBoard} />
+                <Route path="/new" component={CreatePoll} />
+                <Route path="/" exact component={Tab} />
+              </Switch>
+            )}
+          </div>
+        </Fragment>
+      </Router>
     );
   }
 }

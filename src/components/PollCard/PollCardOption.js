@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './PollCard.scss';
 
-export default class PollCardOption extends Component {
+class PollCardOption extends Component {
   render() {
     return (
       <div className="card">
@@ -46,3 +46,5 @@ export default class PollCardOption extends Component {
     );
   }
 }
+
+export default PollCardOption;

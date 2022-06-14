@@ -3,9 +3,16 @@ import { connect } from 'react-redux';
 import './PollCard.scss';
 
 class PollCard extends Component {
+  handleViewPoll = (e, id) => {
+    e.preventDefault();
+
+    if (condition) {
+    }
+  };
+
   render() {
     const { question } = this.props;
-    const { authorAvatarUrl, authorName, optionOne, optionTwo } = question;
+    const { authorAvatarUrl, authorName, optionOne, optionTwo, id } = question;
 
     return (
       <div className="card">
@@ -20,7 +27,12 @@ class PollCard extends Component {
               <p>{optionOne.text}</p>
               <p>OR</p>
               <p>{optionTwo.text}</p>
-              <button className="btn-outlined">View Poll</button>
+              <button
+                className="btn-outlined"
+                onClick={(e) => this.handleViewPoll(e, id)}
+              >
+                View Poll
+              </button>
             </div>
           </div>
         </div>

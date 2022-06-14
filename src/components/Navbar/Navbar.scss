@@ -33,6 +33,15 @@
     }
   }
 
+  a {
+    color: $disabled-text-color;
+    text-decoration: none;
+
+    &:hover {
+      color: $contrast-text-color;
+    }
+  }
+
   .user-section {
     width: 30%;
     display: flex;

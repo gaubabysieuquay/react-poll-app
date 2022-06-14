@@ -1,15 +1,29 @@
 import React from 'react';
 import { MdLogout } from 'react-icons/md';
+import { NavLink } from 'react-router-dom';
 import './Navbar.scss';
 
 const Navbar = () => {
+  const menuItems = [
+    { label: 'HOME', url: '/' },
+    { label: 'NEW QUESTION', url: 'new' },
+    { label: 'LEADER BOARD', url: '/leaderboard' },
+  ];
   return (
     <div className="navbar">
       <nav>
         <ul>
-          <li>HOME</li>
-          <li>NEW QUESTION</li>
-          <li>LEADERBOARD</li>
+          {menuItems.map((item) => (
+            <li key={item.label}>
+              <NavLink
+                to={item.url}
+                exact={item.url === '/'}
+                activeClassName="active"
+              >
+                {item.label}
+              </NavLink>
+            </li>
+          ))}
         </ul>
       </nav>
       <div className="user-section">
