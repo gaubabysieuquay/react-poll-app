@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import PollCard from '../PollCard/PollCard';
-import './Tab.scss';
-import TabItem from './TabItem';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import PollCard from "../PollCard/PollCard";
+import tabStyle from "./Tab.module.scss";
+import TabItem from "./TabItem";
 
 class Tab extends Component {
-  tabItemLabel = ['Unanswered Questions', 'Answered Questions'];
+  tabItemLabel = ["Unanswered Questions", "Answered Questions"];
 
   state = {
     activeTab: this.tabItemLabel[0],
@@ -21,7 +21,7 @@ class Tab extends Component {
 
     return (
       <div className="card">
-        <div className="tab-list">
+        <div className={tabStyle["tab-list"]}>
           <ol>
             {this.tabItemLabel.map((label) => (
               <TabItem
@@ -33,8 +33,8 @@ class Tab extends Component {
             ))}
           </ol>
         </div>
-        <div className="tab-content">
-          {activeTab === 'Answered Questions'
+        <div className={tabStyle["tab-content"]}>
+          {activeTab === "Answered Questions"
             ? answeredIds.map((id) => <PollCard key={id} id={id} />)
             : unansweredIds.map((id) => <PollCard key={id} id={id} />)}
         </div>

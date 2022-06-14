@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import './PollCard.scss';
+import React, { Component } from "react";
+import pollCardStyle from "./PollCard.module.scss";
 
 class PollCardOption extends Component {
   render() {
@@ -7,15 +7,15 @@ class PollCardOption extends Component {
       <div className="card">
         <div className="card-header">Someone asks:</div>
         <div className="card-content">
-          <div className="poll">
-            <div className="avatar">
+          <div className={pollCardStyle["poll"]}>
+            <div className={pollCardStyle["avatar"]}>
               <img
                 src="https://demoda.vn/wp-content/uploads/2022/01/avatar-doremon.jpg"
                 alt=""
               />
             </div>
-            <div className="question">
-              <p className="title">Would you rather</p>
+            <div className={pollCardStyle["question"]}>
+              <p className={pollCardStyle["title"]}>Would you rather</p>
               <form className="form-control">
                 <div className="form-control-input radio">
                   <input

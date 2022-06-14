@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import tabStyle from "./Tab.module.scss";
 
 export default class TabItem extends Component {
   handleOnClick = () => {
@@ -11,7 +12,7 @@ export default class TabItem extends Component {
 
     return (
       <li
-        className={activeTab === label ? 'tab-active' : null}
+        className={activeTab === label ? tabStyle["tab-active"] : null}
         onClick={this.handleOnClick}
       >
         {label}

@@ -1,16 +1,18 @@
-import React, { Component } from 'react';
-import './CreatePoll.scss';
+import React, { Component } from "react";
+import createPollStyle from "./CreatePoll.module.scss";
 
 class CreatePoll extends Component {
   render() {
     return (
       <div className="card">
-        <div className="card-header create-poll-form-header">
+        <div
+          className={`card-header ${createPollStyle["create-poll-form-header"]}`}
+        >
           Create New Question
         </div>
         <div className="card-content">
-          <div className="create-poll-form-content">
-            <p className="title">Complete the question:</p>
+          <div className={createPollStyle["create-poll-form-content"]}>
+            <p className={createPollStyle["title"]}>Complete the question:</p>
             <p>Would you rather...</p>
             <form className="form-control">
               <div className="form-control-input text">
@@ -33,7 +35,10 @@ class CreatePoll extends Component {
                 />
               </div>
 
-              <button type="submit" className="btn-contained submit-btn">
+              <button
+                type="submit"
+                className={`btn-contained ${createPollStyle["submit-btn"]}`}
+              >
                 Submit
               </button>
             </form>
