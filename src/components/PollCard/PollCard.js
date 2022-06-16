@@ -6,7 +6,9 @@ class PollCard extends Component {
   handleViewPoll = (e, id) => {
     e.preventDefault();
 
-    if (condition) {
+    // TODO: Redirect to question detail
+    if (id) {
+      this.props.history.push(`/question/${id}`);
     }
   };
 

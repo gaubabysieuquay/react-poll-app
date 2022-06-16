@@ -21,24 +21,23 @@
   }
 
   li {
-    padding: 0.5em;
+    padding: 0;
     width: 20%;
     text-align: center;
-    border-bottom: 0.2em solid transparent;
-    color: $disabled-text-color;
 
-    &:hover {
-      color: $contrast-text-color;
-      border-bottom: 0.2em solid $secondary-main-color;
-    }
-  }
+    a {
+      text-decoration: none;
+      color: $disabled-text-color;
+      display: block;
+      width: 100%;
+      padding: 0.5em;
+      border-bottom: 0.2em solid transparent;
 
-  a {
-    color: $disabled-text-color;
-    text-decoration: none;
-
-    &:hover {
-      color: $contrast-text-color;
+      &:hover,
+      &.active {
+        color: $contrast-text-color;
+        border-bottom: 0.2em solid $secondary-main-color;
+      }
     }
   }
 
