@@ -6,8 +6,16 @@ import authenticationStyle from "./Authentication.module.scss";
 
 class Login extends Component {
   state = {
-    selectedUser: this.props.users[0].id,
+    selectedUser: "",
   };
+
+  static getDerivedStateFromProps(props) {
+    if (props.users.length) {
+      return { selectedUser: props.users[0].id };
+    }
+
+    return null;
+  }
 
   handleOnChange = (e) => {
     this.setState({ selectedUser: e.target.value });
@@ -20,7 +28,7 @@ class Login extends Component {
     const { dispatch } = this.props;
 
     dispatch(setAuthUser(selectedUser));
-    // this.props.history.push('/');
+    this.props.history.push("/");
   };
 
   componentDidMount = () => {
@@ -28,6 +36,10 @@ class Login extends Component {
   };
   render() {
     const { users } = this.props;
+
+    if (!users.length) {
+      return null;
+    }
 
     return (
       <div className={`card ${authenticationStyle["sign-in-form"]}`}>

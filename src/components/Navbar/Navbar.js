@@ -1,12 +1,12 @@
 import React from "react";
 import { MdLogout } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import navStyle from "./Navbar.module.scss";
 
 const Navbar = () => {
   const menuItems = [
     { label: "HOME", url: "/" },
-    { label: "NEW QUESTION", url: "new" },
+    { label: "NEW QUESTION", url: "/new" },
     { label: "LEADER BOARD", url: "/leaderboard" },
   ];
   return (
@@ -15,13 +15,13 @@ const Navbar = () => {
         <ul>
           {menuItems.map((item) => (
             <li key={item.label}>
-              <Link
+              <NavLink
                 to={item.url}
                 exact={item.url === "/"}
                 activeClassName={navStyle["active"]}
               >
                 {item.label}
-              </Link>
+              </NavLink>
             </li>
           ))}
         </ul>

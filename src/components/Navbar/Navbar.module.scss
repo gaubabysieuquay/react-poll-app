@@ -1,4 +1,4 @@
-@import '../../variable';
+@import "../../variable";
 
 .navbar {
   display: flex;
@@ -24,13 +24,14 @@
     padding: 0;
     width: 20%;
     text-align: center;
+    border: none;
 
     a {
       text-decoration: none;
       color: $disabled-text-color;
       display: block;
       width: 100%;
-      padding: 0.5em;
+      padding: 0.5em 0;
       border-bottom: 0.2em solid transparent;
 
       &:hover,

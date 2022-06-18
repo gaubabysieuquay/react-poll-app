@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router";
 import pollCardStyle from "./PollCard.module.scss";
 
 class PollCard extends Component {
@@ -57,4 +58,4 @@ const mapStateToProps = ({ authUser, users, questions }, { id }) => {
   };
 };
 
-export default connect(mapStateToProps)(PollCard);
+export default withRouter(connect(mapStateToProps)(PollCard));

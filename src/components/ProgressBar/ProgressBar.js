@@ -6,7 +6,10 @@ const ProgressBar = ({ progress, height }) => {
     <div className={progressBarStyle["progress"]} style={{ height: height }}>
       <div
         className={progressBarStyle["progress-bar"]}
-        style={{ width: `${progress}%` }}
+        style={{
+          width: `${progress}%`,
+          marginLeft: `${progress === 0 && "7em"}`,
+        }}
       >
         <span
           className={progressBarStyle["progress-percent"]}

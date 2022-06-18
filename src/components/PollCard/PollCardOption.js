@@ -1,18 +1,19 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import pollCardStyle from "./PollCard.module.scss";
 
 class PollCardOption extends Component {
   render() {
+    const { question } = this.props;
+    const { authorAvatarUrl, authorName, optionOne, optionTwo, id } = question;
+
     return (
       <div className="card">
-        <div className="card-header">Someone asks:</div>
+        <div className="card-header">{authorName} asks:</div>
         <div className="card-content">
           <div className={pollCardStyle["poll"]}>
             <div className={pollCardStyle["avatar"]}>
-              <img
-                src="https://demoda.vn/wp-content/uploads/2022/01/avatar-doremon.jpg"
-                alt=""
-              />
+              <img src={authorAvatarUrl} alt={authorName} />
             </div>
             <div className={pollCardStyle["question"]}>
               <p className={pollCardStyle["title"]}>Would you rather</p>
@@ -25,7 +26,7 @@ class PollCardOption extends Component {
                     id="option1"
                     className="form-radio-input"
                   />
-                  <label htmlFor="option1">Option 1</label>
+                  <label htmlFor="option1">{optionOne.text}</label>
                 </div>
                 <div className="form-control-input radio">
                   <input
@@ -35,7 +36,7 @@ class PollCardOption extends Component {
                     id="option2"
                     className="form-radio-input"
                   />
-                  <label htmlFor="option2">Option 2</label>
+                  <label htmlFor="option2">{optionTwo.text}</label>
                 </div>
                 <button className="btn-contained">Submit</button>
               </form>
@@ -47,4 +48,4 @@ class PollCardOption extends Component {
   }
 }
 
-export default PollCardOption;
+export default connect()(PollCardOption);

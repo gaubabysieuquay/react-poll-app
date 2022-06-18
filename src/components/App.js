@@ -4,11 +4,12 @@ import LoadingBar from "react-redux-loading";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { handleInitialData } from "../actions/shared.action";
 import "./App.scss";
+import Login from "./Authentication/Login";
 import CreatePoll from "./CreatePoll/CreatePoll";
-import Navbar from "./Navbar/Navbar";
-import PollCardOption from "./PollCard/PollCardOption";
-import Tab from "./Tab/Tab";
 import LeaderBoard from "./LeaderBoard/LeaderBoard";
+import Navbar from "./Navbar/Navbar";
+import PollCardDetail from "./PollCard/PollCardDetail";
+import Tab from "./Tab/Tab";
 
 class App extends Component {
   componentDidMount() {
@@ -24,12 +25,14 @@ class App extends Component {
             <Navbar />
           </div>
           <div className="container">
-            {this.props.loading === true ? null : (
+            {this.props.loading === true ? (
+              <Route exact path="/login" component={Login} />
+            ) : (
               <Switch>
-                <Route path="/question/:id" component={PollCardOption} />
-                <Route path="/leaderboard" component={LeaderBoard} />
+                <Route exact path="/" component={Tab} />
                 <Route path="/new" component={CreatePoll} />
-                <Route path="/" exact component={Tab} />
+                <Route path="/leaderboard" exact component={LeaderBoard} />
+                <Route path="/question/:id" component={PollCardDetail} />
               </Switch>
             )}
           </div>
