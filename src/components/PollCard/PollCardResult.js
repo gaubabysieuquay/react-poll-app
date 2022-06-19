@@ -8,6 +8,7 @@ class PollCardResult extends Component {
   handleProgress = (option, optionVoted, totalVote) => {
     const { authUser } = this.props;
     const optionVotedByUser = option.votes.includes(authUser);
+
     return (
       <div className={`card ${optionVotedByUser ? "highlight" : "disabled"}`}>
         <div className="card-content">
@@ -18,7 +19,7 @@ class PollCardResult extends Component {
           </small>
         </div>
         {optionVotedByUser && (
-          <div class={pollCardStyle["voted-tag"]}>
+          <div className={pollCardStyle["voted-tag"]}>
             <AiFillLike />
           </div>
         )}

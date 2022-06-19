@@ -1,14 +1,18 @@
 import React from "react";
 import { MdLogout } from "react-icons/md";
+import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import navStyle from "./Navbar.module.scss";
 
-const Navbar = () => {
+const Navbar = (props) => {
   const menuItems = [
     { label: "HOME", url: "/" },
     { label: "NEW QUESTION", url: "/new" },
     { label: "LEADER BOARD", url: "/leaderboard" },
   ];
+
+  const { user } = props;
+
   return (
     <div className={navStyle["navbar"]}>
       <nav>
@@ -28,10 +32,10 @@ const Navbar = () => {
       </nav>
       <div className={navStyle["user-section"]}>
         <div className={navStyle["user-info"]}>
-          <p>Hello, user</p>
+          <p>Hello, {user.name}</p>
           <img
-            src="https://demoda.vn/wp-content/uploads/2022/01/avatar-doremon.jpg"
-            alt=""
+            src={user.avatarURL}
+            alt={user.name}
             className={navStyle["user-avatar"]}
           />
         </div>
@@ -41,4 +45,10 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+const mapStateToProps = ({ authUser, users }) => {
+  return {
+    user: users[authUser],
+  };
+};
+
+export default connect(mapStateToProps)(Navbar);
