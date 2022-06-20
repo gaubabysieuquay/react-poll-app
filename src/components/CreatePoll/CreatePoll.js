@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { handleAddQuestion } from '../../actions/questions.action';
-import createPollStyle from './CreatePoll.module.scss';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { handleAddQuestion } from "../../actions/shared.action";
+import createPollStyle from "./CreatePoll.module.scss";
 
 class CreatePoll extends Component {
   state = {
-    optionOne: '',
-    optionTwo: '',
+    optionOne: "",
+    optionTwo: "",
   };
 
   handleChangeText = (e) => {
@@ -19,19 +19,25 @@ class CreatePoll extends Component {
     const { dispatch, authUser } = this.props;
     const { optionOne, optionTwo } = this.state;
 
-    dispatch(handleAddQuestion({ optionOne, optionTwo, authUser }));
+    dispatch(
+      handleAddQuestion({
+        optionOneText: optionOne,
+        optionTwoText: optionTwo,
+        author: authUser,
+      })
+    );
   };
   render() {
     return (
       <div className="card">
         <div
-          className={`card-header ${createPollStyle['create-poll-form-header']}`}
+          className={`card-header ${createPollStyle["create-poll-form-header"]}`}
         >
           Create New Question
         </div>
         <div className="card-content">
-          <div className={createPollStyle['create-poll-form-content']}>
-            <p className={createPollStyle['title']}>Complete the question:</p>
+          <div className={createPollStyle["create-poll-form-content"]}>
+            <p className={createPollStyle["title"]}>Complete the question:</p>
             <p>Would you rather...</p>
             <form className="form-control" onSubmit={this.handleSubmit}>
               <div className="form-control-input text">
@@ -58,7 +64,7 @@ class CreatePoll extends Component {
 
               <button
                 type="submit"
-                className={`btn-contained ${createPollStyle['submit-btn']}`}
+                className={`btn-contained ${createPollStyle["submit-btn"]}`}
               >
                 Submit
               </button>
