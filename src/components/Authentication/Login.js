@@ -10,13 +10,11 @@ class Login extends Component {
   };
 
   static getDerivedStateFromProps(props, state) {
-    console.log(
-      '🚀 ~ file: Login.js ~ line 13 ~ Login ~ getDerivedStateFromProps ~ state',
-      state
-    );
     if (props.users.length && !state.selectedUser) {
       return { selectedUser: props.users[0].id };
     }
+
+    return null;
   }
 
   handleOnChange = (e) => {

@@ -1,27 +1,47 @@
-import React, { Component } from "react";
-import createPollStyle from "./CreatePoll.module.scss";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { handleAddQuestion } from '../../actions/questions.action';
+import createPollStyle from './CreatePoll.module.scss';
 
 class CreatePoll extends Component {
+  state = {
+    optionOne: '',
+    optionTwo: '',
+  };
+
+  handleChangeText = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+
+    const { dispatch, authUser } = this.props;
+    const { optionOne, optionTwo } = this.state;
+
+    dispatch(handleAddQuestion({ optionOne, optionTwo, authUser }));
+  };
   render() {
     return (
       <div className="card">
         <div
-          className={`card-header ${createPollStyle["create-poll-form-header"]}`}
+          className={`card-header ${createPollStyle['create-poll-form-header']}`}
         >
           Create New Question
         </div>
         <div className="card-content">
-          <div className={createPollStyle["create-poll-form-content"]}>
-            <p className={createPollStyle["title"]}>Complete the question:</p>
+          <div className={createPollStyle['create-poll-form-content']}>
+            <p className={createPollStyle['title']}>Complete the question:</p>
             <p>Would you rather...</p>
-            <form className="form-control">
+            <form className="form-control" onSubmit={this.handleSubmit}>
               <div className="form-control-input text">
                 <label htmlFor="option1">Enter option 1</label>
                 <input
                   type="text"
-                  name="option1"
-                  id="option1"
+                  name="optionOne"
+                  id="optionOne"
                   className="form-input-text"
+                  onChange={this.handleChangeText}
                 />
               </div>
               <span className="custom-line-break">OR</span>
@@ -29,15 +49,16 @@ class CreatePoll extends Component {
                 <label htmlFor="option1">Enter option 2</label>
                 <input
                   type="text"
-                  name="option2"
-                  id="option2"
+                  name="optionTwo"
+                  id="optionTwo"
                   className="form-input-text"
+                  onChange={this.handleChangeText}
                 />
               </div>
 
               <button
                 type="submit"
-                className={`btn-contained ${createPollStyle["submit-btn"]}`}
+                className={`btn-contained ${createPollStyle['submit-btn']}`}
               >
                 Submit
               </button>
@@ -49,4 +70,6 @@ class CreatePoll extends Component {
   }
 }
 
-export default CreatePoll;
+const mapStateToProps = ({ authUser }) => ({ authUser });
+
+export default connect(mapStateToProps)(CreatePoll);
