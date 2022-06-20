@@ -1,20 +1,22 @@
-import { Component } from "react";
-import { connect } from "react-redux";
-import { setAuthUser } from "../../actions/authUser.action";
-import { handleInitialData } from "../../actions/shared.action";
-import authenticationStyle from "./Authentication.module.scss";
+import { Component } from 'react';
+import { connect } from 'react-redux';
+import { setAuthUser } from '../../actions/authUser.action';
+import { handleInitialData } from '../../actions/shared.action';
+import authenticationStyle from './Authentication.module.scss';
 
 class Login extends Component {
   state = {
-    selectedUser: "",
+    selectedUser: '',
   };
 
-  static getDerivedStateFromProps(props) {
-    if (props.users.length) {
+  static getDerivedStateFromProps(props, state) {
+    console.log(
+      '🚀 ~ file: Login.js ~ line 13 ~ Login ~ getDerivedStateFromProps ~ state',
+      state
+    );
+    if (props.users.length && !state.selectedUser) {
       return { selectedUser: props.users[0].id };
     }
-
-    return null;
   }
 
   handleOnChange = (e) => {
@@ -28,12 +30,9 @@ class Login extends Component {
     const { dispatch } = this.props;
 
     dispatch(setAuthUser(selectedUser));
-    this.props.history.push("/");
+    this.props.history.push('/');
   };
 
-  componentDidMount = () => {
-    this.props.dispatch(handleInitialData());
-  };
   render() {
     const { users } = this.props;
 
@@ -42,9 +41,9 @@ class Login extends Component {
     }
 
     return (
-      <div className={`card ${authenticationStyle["sign-in-form"]}`}>
+      <div className={`card ${authenticationStyle['sign-in-form']}`}>
         <div
-          className={`card-header ${authenticationStyle["sign-in-form-header"]}`}
+          className={`card-header ${authenticationStyle['sign-in-form-header']}`}
         >
           Sign In
         </div>
@@ -57,7 +56,6 @@ class Login extends Component {
                 id="username"
                 className="form-input-text"
                 onChange={this.handleOnChange}
-                value={this.state.selectedUser}
                 disabled={!this.props.users}
               >
                 {users.map((user) => (
@@ -69,7 +67,7 @@ class Login extends Component {
             </div>
             <button
               type="submit"
-              className={`btn-contained ${authenticationStyle["submit-btn"]}`}
+              className={`btn-contained ${authenticationStyle['submit-btn']}`}
             >
               Login
             </button>
@@ -82,7 +80,7 @@ class Login extends Component {
 
 const mapStateToProps = ({ users }) => {
   const userIds = Object.keys(users).sort((a, b) =>
-    users[a].name.split(" ")[0].localeCompare(users[b].name.split(" ")[0])
+    users[a].name.split(' ')[0].localeCompare(users[b].name.split(' ')[0])
   );
   return {
     users: userIds.map((userId) => users[userId]),
