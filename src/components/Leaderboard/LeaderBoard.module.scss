@@ -1,4 +1,4 @@
-@import "../../variable";
+@import '../../variable';
 
 .leaderboard {
   display: flex;
@@ -9,7 +9,18 @@
   .trophy {
     display: inline-block;
     margin: 0.4em 0 0 0.2em;
-    color: yellow;
+
+    &.top-1 {
+      color: yellow;
+    }
+
+    &.top-2 {
+      color: silver;
+    }
+
+    &.top-3 {
+      color: #ffaa8b;
+    }
   }
 
   .card {
@@ -19,7 +30,7 @@
           $secondary-main-color 50.1%
         )
         top left/50px 50px no-repeat,
-      $paper-background-color;
+      $contrast-text-color;
   }
 
   .answered-created-container {

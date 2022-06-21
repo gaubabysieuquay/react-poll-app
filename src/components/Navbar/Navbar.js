@@ -8,7 +8,7 @@ import navStyle from './Navbar.module.scss';
 const Navbar = (props) => {
   const menuItems = [
     { label: 'HOME', url: '/' },
-    { label: 'NEW QUESTION', url: '/new' },
+    { label: 'NEW QUESTION', url: '/add' },
     { label: 'LEADER BOARD', url: '/leaderboard' },
   ];
 

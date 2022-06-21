@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import PollCard from "../PollCard/PollCard";
-import tabStyle from "./Tab.module.scss";
-import TabItem from "./TabItem";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PollCard from '../PollCard/PollCard';
+import tabStyle from './Tab.module.scss';
+import TabItem from './TabItem';
 
 class Tab extends Component {
-  tabItemLabel = ["Unanswered Questions", "Answered Questions"];
+  tabItemLabel = ['Unanswered Questions', 'Answered Questions'];
 
   state = {
     activeTab: this.tabItemLabel[0],
@@ -21,7 +21,7 @@ class Tab extends Component {
 
     return (
       <div className="card">
-        <div className={tabStyle["tab-list"]}>
+        <div className={tabStyle['tab-list']}>
           <ol>
             {this.tabItemLabel.map((label) => (
               <TabItem
@@ -33,8 +33,8 @@ class Tab extends Component {
             ))}
           </ol>
         </div>
-        <div className={tabStyle["tab-content"]}>
-          {activeTab === "Answered Questions"
+        <div className={tabStyle['tab-content']}>
+          {activeTab === 'Answered Questions'
             ? answeredIds.map((id) => <PollCard key={id} id={id} />)
             : unansweredIds.map((id) => <PollCard key={id} id={id} />)}
         </div>
@@ -44,17 +44,16 @@ class Tab extends Component {
 }
 
 const mapStateToProps = ({ authUser, users, questions }) => {
-  const answeredIds = Object.keys(users[authUser].answers);
-  const unansweredIds = Object.keys(questions).filter(
-    (item) => !answeredIds.includes(item)
+  const answeredIds = Object.keys(users[authUser].answers).sort(
+    (a, b) => questions[b].timestamp - questions[a].timestamp
   );
+  const unansweredIds = Object.keys(questions)
+    .filter((item) => !answeredIds.includes(item))
+    .sort((a, b) => questions[b].timestamp - questions[a].timestamp);
 
   return {
     answeredIds,
     unansweredIds,
-    questionIds: Object.keys(questions).sort(
-      (a, b) => questions[b].timestamp - questions[a].timestamp
-    ),
   };
 };
 

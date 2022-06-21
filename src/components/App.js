@@ -1,15 +1,21 @@
-import { Component, Fragment } from "react";
-import { connect } from "react-redux";
-import LoadingBar from "react-redux-loading";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { handleInitialData } from "../actions/shared.action";
-import "./App.scss";
-import Login from "./Authentication/Login";
-import CreatePoll from "./CreatePoll/CreatePoll";
-import LeaderBoard from "./LeaderBoard/LeaderBoard";
-import Navbar from "./Navbar/Navbar";
-import PollCardDetail from "./PollCard/PollCardDetail";
-import Tab from "./Tab/Tab";
+import { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
+import LoadingBar from 'react-redux-loading';
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch,
+} from 'react-router-dom';
+import { handleInitialData } from '../actions/shared.action';
+import './App.scss';
+import Login from './Authentication/Login';
+import CreatePoll from './CreatePoll/CreatePoll';
+import LeaderBoard from './LeaderBoard/LeaderBoard';
+import Navbar from './Navbar/Navbar';
+import NoMatch from './NoMatch/NoMatch';
+import PollCardDetail from './PollCard/PollCardDetail';
+import Tab from './Tab/Tab';
 
 class App extends Component {
   componentDidMount() {
@@ -30,9 +36,10 @@ class App extends Component {
             ) : (
               <Switch>
                 <Route exact path="/" component={Tab} />
-                <Route path="/new" component={CreatePoll} />
+                <Route path="/add" component={CreatePoll} />
                 <Route path="/leaderboard" exact component={LeaderBoard} />
                 <Route path="/question/:id" component={PollCardDetail} />
+                <Route path="*" component={NoMatch} />
               </Switch>
             )}
           </div>
