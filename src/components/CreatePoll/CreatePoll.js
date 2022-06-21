@@ -26,6 +26,8 @@ class CreatePoll extends Component {
         author: authUser,
       })
     );
+
+    this.props.history.push("/");
   };
   render() {
     return (
