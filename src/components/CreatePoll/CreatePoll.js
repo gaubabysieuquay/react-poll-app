@@ -29,6 +29,7 @@ class CreatePoll extends Component {
 
     this.props.history.push("/");
   };
+
   render() {
     return (
       <div className="card">
@@ -50,6 +51,7 @@ class CreatePoll extends Component {
                   id="optionOne"
                   className="form-input-text"
                   onChange={this.handleChangeText}
+                  required
                 />
               </div>
               <span className="custom-line-break">OR</span>
@@ -61,6 +63,7 @@ class CreatePoll extends Component {
                   id="optionTwo"
                   className="form-input-text"
                   onChange={this.handleChangeText}
+                  required
                 />
               </div>
 

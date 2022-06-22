@@ -1,18 +1,14 @@
-import { Component } from 'react';
-import { connect } from 'react-redux';
-import leaderBoardStyle from './LeaderBoard.module.scss';
-import LeaderBoardItem from './LeaderBoardItem';
+import { Component } from "react";
+import { connect } from "react-redux";
+import leaderBoardStyle from "./LeaderBoard.module.scss";
+import LeaderBoardItem from "./LeaderBoardItem";
 
 class LeaderBoard extends Component {
   render() {
     const { userListByRank } = this.props;
-    console.log(
-      '🚀 ~ file: LeaderBoard.js ~ line 9 ~ LeaderBoard ~ render ~ userListByRank',
-      userListByRank
-    );
 
     return (
-      <div className={leaderBoardStyle['leaderboard']}>
+      <div className={leaderBoardStyle["leaderboard"]}>
         {userListByRank.map((user) => (
           <LeaderBoardItem user={user} key={user.id} />
         ))}

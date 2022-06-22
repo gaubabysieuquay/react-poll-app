@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
-import pollCardStyle from './PollCard.module.scss';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { withRouter } from "react-router";
+import pollCardStyle from "./PollCard.module.scss";
 
 class PollCard extends Component {
   handleViewPoll = (e, id) => {
     e.preventDefault();
 
     if (id) {
-      this.props.history.push(`/question/${id}`);
+      this.props.history.push(`/questions/${id}`);
     }
   };
 
@@ -20,12 +20,12 @@ class PollCard extends Component {
       <div className="card">
         <div className="card-header">{authorName} asks:</div>
         <div className="card-content">
-          <div className={pollCardStyle['poll']}>
-            <div className={pollCardStyle['avatar']}>
+          <div className={pollCardStyle["poll"]}>
+            <div className={pollCardStyle["avatar"]}>
               <img src={authorAvatarUrl} alt={authorName} />
             </div>
-            <div className={pollCardStyle['question']}>
-              <p className={pollCardStyle['title']}>Would you rather</p>
+            <div className={pollCardStyle["question"]}>
+              <p className={pollCardStyle["title"]}>Would you rather</p>
               <p>{optionOne.text}</p>
               <p>OR</p>
               <p>{optionTwo.text}</p>
