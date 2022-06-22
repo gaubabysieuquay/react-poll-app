@@ -70,8 +70,12 @@ class Login extends Component {
               Login
             </button>
           </form>
-          <span>Don't have your account ?</span>
-          <Link to="/register">Sign up!</Link>
+          <div className="card-footer">
+            <span>Don't have your account ?</span>
+            <Link to="/register" className={authenticationStyle['link']}>
+              Sign up!
+            </Link>
+          </div>
         </div>
       </div>
     );

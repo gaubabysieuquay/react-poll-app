@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { handleAddUser } from '../../actions/users.action';
 import authenticationStyle from './Authentication.module.scss';
 
@@ -65,6 +66,12 @@ class Register extends Component {
               Sign Up
             </button>
           </form>
+          <div className="card-footer">
+            <span>Already have your account ?</span>
+            <Link to="/login" className={authenticationStyle['link']}>
+              Sign in now!
+            </Link>
+          </div>
         </div>
       </div>
     );

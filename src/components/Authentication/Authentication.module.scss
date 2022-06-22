@@ -1,3 +1,5 @@
+@import '../../variable';
+
 .sign-in-form {
   width: 28%;
   .sign-in-form-header {
@@ -8,5 +10,15 @@
 
   .submit-btn {
     margin: 1em 0;
+  }
+}
+
+.link {
+  color: $primary-main-color;
+  padding-left: 1em;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
   }
 }
