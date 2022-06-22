@@ -1,11 +1,12 @@
-import { Component } from "react";
-import { connect } from "react-redux";
-import authenticationStyle from "./Authentication.module.scss";
+import { Component } from 'react';
+import { connect } from 'react-redux';
+import { handleAddUser } from '../../actions/users.action';
+import authenticationStyle from './Authentication.module.scss';
 
-export class Register extends Component {
+class Register extends Component {
   state = {
-    username: "",
-    avatarURL: "",
+    username: '',
+    avatarURL: '',
   };
 
   handleChangeText = (e) => {
@@ -25,13 +26,13 @@ export class Register extends Component {
       })
     );
 
-    this.props.history.push("/");
+    this.props.history.push('/login');
   };
   render() {
     return (
-      <div className={`card ${authenticationStyle["sign-in-form"]}`}>
+      <div className={`card ${authenticationStyle['sign-in-form']}`}>
         <div
-          className={`card-header ${authenticationStyle["sign-in-form-header"]}`}
+          className={`card-header ${authenticationStyle['sign-in-form-header']}`}
         >
           Sign Up
         </div>
@@ -59,7 +60,7 @@ export class Register extends Component {
             </div>
             <button
               type="submit"
-              className={`btn-contained ${authenticationStyle["submit-btn"]}`}
+              className={`btn-contained ${authenticationStyle['submit-btn']}`}
             >
               Sign Up
             </button>

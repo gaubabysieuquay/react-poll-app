@@ -1,22 +1,18 @@
-import { Component, Fragment } from "react";
-import { connect } from "react-redux";
-import LoadingBar from "react-redux-loading";
-import {
-  BrowserRouter as Router,
-  Redirect,
-  Route,
-  Switch,
-} from "react-router-dom";
-import { handleInitialData } from "../actions/shared.action";
-import "./App.scss";
-import Login from "./Authentication/Login";
-import CreatePoll from "./CreatePoll/CreatePoll";
-import LeaderBoard from "./LeaderBoard/LeaderBoard";
-import Navbar from "./Navbar/Navbar";
-import NoMatch from "./NoMatch/NoMatch";
-import PollCardDetail from "./PollCard/PollCardDetail";
-import ProtectedRoute from "./ProtectedRoute";
-import Tab from "./Tab/Tab";
+import { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
+import LoadingBar from 'react-redux-loading';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { handleInitialData } from '../actions/shared.action';
+import './App.scss';
+import Login from './Authentication/Login';
+import Register from './Authentication/Register';
+import CreatePoll from './CreatePoll/CreatePoll';
+import LeaderBoard from './LeaderBoard/LeaderBoard';
+import Navbar from './Navbar/Navbar';
+import NoMatch from './NoMatch/NoMatch';
+import PollCardDetail from './PollCard/PollCardDetail';
+import ProtectedRoute from './ProtectedRoute';
+import Tab from './Tab/Tab';
 
 class App extends Component {
   componentDidMount() {
@@ -35,6 +31,7 @@ class App extends Component {
           <div className="container">
             <Switch>
               <Route exact path="/login" component={Login} />
+              <Route exact path="/register" component={Register} />
               <ProtectedRoute
                 path="/"
                 component={Tab}

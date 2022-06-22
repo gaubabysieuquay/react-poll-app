@@ -1,11 +1,12 @@
-import { Component } from "react";
-import { connect } from "react-redux";
-import { setAuthUser } from "../../actions/authUser.action";
-import authenticationStyle from "./Authentication.module.scss";
+import { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { setAuthUser } from '../../actions/authUser.action';
+import authenticationStyle from './Authentication.module.scss';
 
 class Login extends Component {
   state = {
-    selectedUser: "",
+    selectedUser: '',
   };
 
   static getDerivedStateFromProps(props, state) {
@@ -27,7 +28,7 @@ class Login extends Component {
     const { dispatch } = this.props;
 
     dispatch(setAuthUser(selectedUser));
-    this.props.history.push("/");
+    this.props.history.push('/');
   };
 
   render() {
@@ -38,9 +39,9 @@ class Login extends Component {
     }
 
     return (
-      <div className={`card ${authenticationStyle["sign-in-form"]}`}>
+      <div className={`card ${authenticationStyle['sign-in-form']}`}>
         <div
-          className={`card-header ${authenticationStyle["sign-in-form-header"]}`}
+          className={`card-header ${authenticationStyle['sign-in-form-header']}`}
         >
           Sign In
         </div>
@@ -64,11 +65,13 @@ class Login extends Component {
             </div>
             <button
               type="submit"
-              className={`btn-contained ${authenticationStyle["submit-btn"]}`}
+              className={`btn-contained ${authenticationStyle['submit-btn']}`}
             >
               Login
             </button>
           </form>
+          <span>Don't have your account ?</span>
+          <Link to="/register">Sign up!</Link>
         </div>
       </div>
     );
@@ -77,7 +80,7 @@ class Login extends Component {
 
 const mapStateToProps = ({ users }) => {
   const userIds = Object.keys(users).sort((a, b) =>
-    users[a].name.split(" ")[0].localeCompare(users[b].name.split(" ")[0])
+    users[a].name.split(' ')[0].localeCompare(users[b].name.split(' ')[0])
   );
   return {
     users: userIds.map((userId) => users[userId]),
